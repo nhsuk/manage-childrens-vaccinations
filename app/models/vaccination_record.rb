@@ -119,4 +119,8 @@ class VaccinationRecord < ApplicationRecord
   def not_administered?
     !administered?
   end
+
+  def recorded?
+    recorded_at.present?
+  end
 end

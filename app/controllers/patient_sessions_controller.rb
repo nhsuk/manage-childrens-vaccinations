@@ -45,15 +45,12 @@ class PatientSessionsController < ApplicationController
 
   def set_back_link
     @back_link =
-      case @route
-      when "vaccinations"
+      if session[:current_section] == "vaccinations"
         vaccinations_session_path(@session)
-      when "triage"
+      elsif session[:current_section] == "consents"
+        consents_session_path(@session, anchor: "given")
+      else # if current_section is triage or anything else
         triage_session_path(@session)
-      when "consents"
-        consents_session_path(@session)
-      else
-        raise ArgumentError, "Unknown route: #{@route}"
       end
   end
 end
