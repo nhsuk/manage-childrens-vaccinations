@@ -35,7 +35,6 @@ class TriageController < ApplicationController
     }
 
     @current_tab = TAB_PATHS[:triage][params[:tab]]
-    tabs_to_states[@current_tab]
     tab_patient_sessions =
       all_patient_sessions.group_by do |patient_session|
         tabs_to_states
