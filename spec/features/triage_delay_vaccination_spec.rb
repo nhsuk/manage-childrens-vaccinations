@@ -13,7 +13,7 @@ RSpec.describe "Triage" do
     when_i_go_to_the_triage_completed_tab
     then_i_see_the_patient
 
-    when_i_access_the_record_vaccinations_area
+    when_i_go_to_the_vaccinate_later_tab_of_record_vaccinations
     then_i_see_the_patient_in_the_vaccinate_later_tab
 
     when_i_view_the_child_record
@@ -73,9 +73,10 @@ RSpec.describe "Triage" do
     end
   end
 
-  def when_i_access_the_record_vaccinations_area
+  def when_i_go_to_the_vaccinate_later_tab_of_record_vaccinations
     click_on @school.name, match: :first
     click_on "Record vaccinations"
+    click_on "Vaccinate later"
   end
 
   def then_i_see_the_patient_in_the_vaccinate_later_tab
